@@ -1,3 +1,3 @@
 <?php
-echo "<p>"+$_POST["message"]+"</p>";
+echo "hi";//"<p>"+$_POST["message"]+"</p>";
 ?>

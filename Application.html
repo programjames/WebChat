@@ -14,6 +14,25 @@ Chat Application
 <div id="chatResponse"></div>
 
 <script>
+debugger;
+$('#chatForm').submit(function(event){
+event.preventDefault();
+$.post("chat.php",{message:$('#message').value},function(response,status){alert(response)});
+});
+
+/*
+$(function() {
+	$('chatForm').submit(function() {
+		$.ajax({
+			type: 'POST',
+			url: 'chat.php',
+			data: {message:$(this).message.value}
+		});
+		return false;
+	})
+
+})
+
 $("#chatForm").submit(function(event){
 event.preventDefault();
 var $form=$(this),
@@ -25,7 +44,7 @@ $("#chatResponse").html(data);
 
 }
 
-)
+)*/
 </script>
 </body>
 </html>
