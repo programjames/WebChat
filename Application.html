@@ -1,0 +1,31 @@
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+</head>
+<title>
+Chat Application
+</title>
+<body>
+<h1 style="float:center">This is my first Chat Application. Have fun hacking!</h1>
+<form id="chatForm" action="chat.php" method="post">
+<input type="text" id="message" name="message"></input>
+<input type="submit" id="submit">
+</form>
+<div id="chatResponse"></div>
+
+<script>
+$("#chatForm").submit(function(event){
+event.preventDefault();
+var $form=$(this),
+message_value=$("#message").val();
+var posting=$.post("chat.php",{message:message_value});
+posting.done(function(data){
+$("#chatResponse").html(data);
+})
+
+}
+
+)
+</script>
+</body>
+</html>
