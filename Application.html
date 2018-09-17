@@ -11,40 +11,32 @@ Chat Application
 <input type="text" id="message" name="message"></input>
 <input type="submit" id="submit">
 </form>
-<div id="chatResponse"></div>
+<iframe src="log.html"></iframe>
+<div id="chat"></div>
 
 <script>
-debugger;
-$('#chatForm').submit(function(event){
-event.preventDefault();
-$.post("chat.php",{message:$('#message').value},function(response,status){alert(response)});
-});
+/*$(function (){
+$('#chatForm').on('submit',
+function (e){
+e.preventDefault();
 
-/*
-$(function() {
-	$('chatForm').submit(function() {
-		$.ajax({
-			type: 'POST',
-			url: 'chat.php',
-			data: {message:$(this).message.value}
-		});
-		return false;
-	})
-
-})
-
-$("#chatForm").submit(function(event){
-event.preventDefault();
-var $form=$(this),
-message_value=$("#message").val();
-var posting=$.post("chat.php",{message:message_value});
-posting.done(function(data){
-$("#chatResponse").html(data);
-})
-
+$.ajax({
+type:'post',
+url:'chat.php',
+data: {message:"hey there!"},
+complete: function (response){
+alert('done');
 }
-
-)*/
+});
+});
+});*/
+$("#chatForm").click(function(){	
+		var clientmsg = $("#message").val();
+		$.post("chat.php", {message: clientmsg});				
+		$("#message").attr("value", "");
+		alert("hey!")
+		return false;
+	});
 </script>
 </body>
 </html>
